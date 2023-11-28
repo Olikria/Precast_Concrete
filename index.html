@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Precast Concrete</title>
+    <style>
+        @media (max-width: 768px) {
+            .header {
+                position: static;
+                min-height: auto;
+            }
+
+            .title,
+            .subtitle-container {
+                position: static;
+                transform: none;
+                margin-top: 20px;
+                /* Adjust as needed */
+                text-align: center;
+                /* Center align text for smaller screens */
+            }
+
+            .title {
+                font-size: 40px;
+                /* Smaller font size for smaller screens */
+            }
+
+            .subtitle {
+                font-size: 24px;
+                /* Smaller font size for smaller screens */
+            }
+        }
+
+        body,
+        html {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            height: 100%;
+        }
+
+        .header {
+            background-image: url('Precast_01.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(71, 79, 80, 0.4);
+            z-index: 1;
+        }
+
+        .logo-wrapper {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.56);
+            z-index: 2;
+        }
+
+        .logo-container {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border: 2px solid white;
+            display: inline-block;
+        }
+
+        .logo {
+            max-width: 450px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .title {
+            color: white;
+            font-size: 56px;
+            font-weight: 800;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 44%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+
+        .subtitle-container {
+            background-color: rgba(0, 0, 0, 0.56);
+            width: 100%;
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 3;
+        }
+
+        .subtitle {
+            font-size: 36px;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.9);
+            display: block;
+        }
+
+        .color {
+            color: #229b6a;
+        }
+
+        /* New styles for the next section */
+        .engineer-section {
+            position: relative;
+            text-align: center;
+            padding: 50px 0;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .engineer-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('thumbnail (2).jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.18;
+            z-index: -1;
+        }
+
+        .engineer-section h2 { 
+            display: inline-block;
+            position: relative;
+
+            font-size: 19pt;
+            font-family: 'Montserrat Black', sans-serif;
+            margin: 0 auto;
+            padding: 10px 20px;
+            
+            
+            justify-content: center;
+            align-items: center;
+            vertical-align: middle;
+            
+            text-transform: uppercase;
+            color: #219b69;
+        }
+
+        .h3 {
+            text-align: center;
+            font-size: 20px;
+            font-family: Montserrat Semibold;
+            color: #219b69;
+        }
+
+        .ondemand-section {
+            background-color: rgba(0, 0, 0, 0.14);
+            /* Semi-transparent black background */
+            padding: 20px;
+            margin: 20px 500px;
+            /* Adjust as needed */
+            color: black;
+            margin-left: 689px;
+            margin-right: 689px;
+        }
+
+        .ondemand-section p {
+            font-size: 20px;
+            font-family: 'Montserrat Semibold';
+            color: #444c4d;
+            margin: 0;
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            /* Adjusts spacing between children */
+        }
+
+        .ondemand-section {
+            background-color: rgba(0, 0, 0, 0.14);
+            /* Semi-transparent black background */
+            padding: 20px;
+            flex: 1;
+            /* Each section takes equal width */
+            margin: 20px;
+            /* Adds margin around each section */
+            color: black;
+        }
+
+        .services-section {
+            /* Creates three columns */
+            align-items: start;
+            /* Aligns all items at the top of their respective cells */
+            row-gap: 20px;
+            /* Reduced vertical gap between items */
+            column-gap: 20px;
+            /* Keeps the original horizontal gap */
+            padding: 50px;
+            /* Padding around the entire grid */
+            margin-top: 0;
+            /* Ensure no top margin on the services section */
+            /* Other styles remain unchanged */
+        }
+        
+        .grid-3-col{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            
+        }
+        
+        .grid-2-col{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+        }
+
+        .service {
+            display: flex;
+            flex-grow: 1;
+            padding: 20px;
+            height: 100%;
+            margin: auto;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: rgba(0, 0, 0, 0.14);
+        }
+        
+        .service p {
+            font-size: 14px;
+            font-family: 'Montserrat Semibold';
+            color: #444c4d;
+            margin: 0;
+            margin-top: auto;
+            flex-grow: 1;
+            align-self: start;
+        }
+        
+        .services-section .service p{
+            text-align: center;
+
+        }
+        
+        .service-description {
+            min-height: 100px;
+            /* Adjust this value as needed to align starting points */
+            display: flex;
+            align-items: center;
+            /* Centers the text vertically */
+            justify-content: center;
+            /* Centers the text horizontally */
+        }
+        
+        /* Styles for service titles in the grid layout */
+        .service h2 {
+            height: 32px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            white-space: normal;
+            font-weight: bold;
+            color: #229b6a;
+            /* Smaller font size for Technical Assessments, Structural Designs, etc. */
+            /* ... other styles ... */
+        }
+
+
+        .services-header {
+            text-align: center;
+            padding: 50px 0;
+            /* This matches the padding from the .engineer-section */
+        }
+
+        .services-header h2 {
+            font-size: 19pt;
+            font-family: 'Montserrat Black', sans-serif;
+            text-transform: uppercase;
+            color: #219b69;
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 auto;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+        }
+
+        .engineer-section,
+        .services-header {
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+
+        .leadership-header {
+            font-size: 19pt;
+            font-family: 'Montserrat Black', sans-serif;
+            text-transform: uppercase;
+            color: #219b69;
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 auto;
+
+        }
+
+        /* CSS to center the image on the page */
+        .leadership-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 23.6%;
+            /* or any desired width */
+            height: 23.6%
+        }
+
+
+        .image-and-heading-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            /* Vertically center the contents */
+            justify-content: center;
+            /* Horizontally center the contents */
+        }
+
+        .heading-next-to-image {
+            font-size: 16px;
+            /* Adjust this value as needed */
+            font-family: 'Montserrat Black', sans-serif;
+            color: #229b6a;
+            margin-left: 20px;
+        }
+
+        .align-left {
+            text-align: left;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo-wrapper">
+            <div class="logo-container">
+                <img src="SRE_White_Green.png" alt="Logo" class="logo">
+            </div>
+        </div>
+        <h1 class="title">Precast Concrete</h1>
+        <div class="subtitle-container">
+            <br />
+            <div class="subtitle">Retain a</div>
+            <div class="subtitle color">Precast Engineer</div>
+            <div class="subtitle">Today</div>
+            <br />
+        </div>
+    </div>
+
+    <!-- New section for "Why Retain a Precast Engineer?" -->
+    <div class="engineer-section">
+        <br />
+        <br/>
+        <h2>Why Retain a Precast Engineer?</h2>
+        <div style="margin-left: 40px; margin-right: 40px;">
+            <p style="text-align:center; font-size: 20px; font-family: Montserrat Semibold; color: #444c4d;">At Safe Roads
+                Engineering (SRE), we transform your visions into concrete realities.
+                <br />
+                <br />
+                Our structural engineers are your strategic allies in the world of precast operations, and we will work
+                with you to develop your in-house staff, act as experts on behalf of your company, and provide prompt
+                and reliable service that will go above and beyond your expectations.
+                <br />
+                <br />
+                We currently offer two retainer service models to choose from:
+
+                <div class="services-section grid-2-col">
+                    <!-- Fixed / Flexible Budget Section -->
+                    <div class="service">
+                        <h2>Fixed / Flexible Budget</h2>
+                        <p>With this model, you will determine the annual budget, benefit from a discounted engineering service rate for billable hours, and receive a monthly invoice that can be fixed or adjusted as needed.</p>
+                    </div>
+                
+                    <!-- On-Demand Section -->
+                    <div class="service">
+                        <h2>On-Demand</h2>
+                        <p>With the on-demand model, you will receive a monthly bill that is based on the actual number of hours used, all calculated at our preferred retained engineering service rate.</p>
+                    </div>
+                </div>
+                
+
+            <div class="services-header">
+                <h2>Services Offered</h2>
+            </div>
+
+            <div class="services-section grid-3-col">
+                <div class="service">
+                    <h2>Technical Assessments</h2>
+                    <p>We will provide technical opinions on new projects, design / manufacturing challenges, quality
+                        issues, and installation recommendations.</p>
+                </div>
+                <div class="service">
+                    <h2>Structural Designs</h2>
+                    <p>We offer structural designs of precast concrete structures and components.</p>
+                </div>
+                <div class="service">
+                    <h2>Manufacturing Support</h2>
+                    <p>You will receive technical support and root cause analyses in handling manufacturing issues,
+                        deficiencies, concrete quality, etc.</p>
+                </div>
+                <div class="service">
+                    <h2>Post-Manufacturing Services</h2>
+                    <p>We provide logistics, lifting, handling, installation planning, inspections, certifications, etc.
+                    </p>
+                </div>
+                <div class="service">
+                    <h2>Training, Coaching, and Mentoring</h2>
+                    <p>You will receive customized training, team coaching on projects, and personal mentoring for your
+                        technical professionals.</p>
+                </div>
+                <div class="service">
+                    <h2>Emergency Site Visits</h2>
+                    <p>Our engineers will attend job sites for conditional assessments and remediation plans.</p>
+                </div>
+            </div>
+
+            
+                <h2>Leadership</h2>
+                <br/>
+                <br/>
+                <br/>
+            <div class="image-and-heading-container">
+                <img src="C22-112 004 SW_website.jpg" alt="Sammy Wong Image" class="leadership-image" />
+                <div class="service align-left">
+                    <h2 class="align-left">Lui (Sammy) Wong, P.Eng., Ph.D.</h2>
+                    <p style="padding: 20px; padding-top: 2px; margin-top: 3px;" class="align-left">As our Senior Consulting Engineer,
+                        Sammy offers 20+ years of experience in civil engineering, with
+                        a specialization in precast concrete
+                        structures, concrete materials
+                        technology; design and
+                        manufacturing; and buried concrete
+                        structures.
+                        <br/>
+                        <br/>
+                        He has worked on several large-scale
+                        public projects involving precast
+                        concrete, and his professional
+                        experience in the industry allows him
+                        to support many precast
+                        manufacturers and contractors
+                        across the entire technical spectrum.
+                        <br/>
+                        <br/>
+                        Sammy is a Designated Consulting
+                        Engineer in Ontario (PCI Level III),
+                        and his team is licensed to practice in
+                        all provinces within Canada.</p>
+                </div>
+            </div>
+
+            <div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <h2> Let's Talk About Your Next Project</h2>
+                <br/>
+    
+                <p style="text-align:center; font-size: 20px; font-family: Montserrat Semibold; color: #444c4d;">Do you have a project that you would
+                    like to retain our services for? Our
+                    engineers would be happy to guide
+                    you through the next steps and assist
+                    you with any questions that you may
+                    have.
+                    <br/>
+                    <br/>
+                    Contact us today at 905-727-4198 or
+                    <a href="mailto:precast@saferoadseng.com" style="color: #219b69;">precast@saferoadseng.com</a>
+                    </a> to book your consultation!</p>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+
+
+            <!-- Additional content goes here -->
+
+</body>
+
+</html>
